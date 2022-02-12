@@ -14,8 +14,15 @@ export class GameComponent implements OnInit {
   }
 
   public changeVisible: boolean = true
-  public welcome(){
+  public points: number = 0
+
+  public welcome() {
     this.resultChangeVisible.emit(this.changeVisible)
   }
-
+  public statusPoints() {
+    this.points = this.points + 1
+  }
+  public resetPoints() {
+    this.points = 0
+  }
 }
