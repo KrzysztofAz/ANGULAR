@@ -7,5 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-snake';
-  
+  isVisible: boolean = true
+  statusLogin(data: boolean){
+    this.isVisible = data
+  }
+  statusGame(data: boolean){
+    this.isVisible = data
+  }
 }

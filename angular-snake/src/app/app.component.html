@@ -1,9 +1,11 @@
-<ngx-snake #game></ngx-snake>
+<div [hidden] = "!isVisible">
+    <app-login
+    (resultChangeVisible) = "statusLogin($event)"
+    ></app-login>  
+</div>
 
-<button (click)="game.actionStart()">Start</button>
-<button (click)="game.actionStop()">Stop</button>
-<button (click)="game.actionReset()">Reset</button>
-<button (click)="game.actionUp()">Up</button>
-<button (click)="game.actionLeft()">Left</button>
-<button (click)="game.actionRight()">Right</button>
-<button (click)="game.actionDown()">Down</button>
+<div [hidden] = "isVisible">
+    <app-game
+    (resultChangeVisible) = "statusGame($event)"
+    ></app-game>
+</div>
