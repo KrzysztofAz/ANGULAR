@@ -20,17 +20,13 @@ export class GameComponent implements OnInit {
 
   public changeVisible: boolean = true
   public points: number = 0
-
   public actionName: string = ""
-
   public actionList: Array<Actions> = []
-
   public isStart: boolean = false
-
   public isGameOver: boolean = false
-
   public selectedFilter: string = "ascending"
-
+  public actionArray: Array<string> = ["up", "down", "left", "right"]
+  public selectedSort: string = "all"
 
   public statusPoints() {
     this.points = this.points + 1

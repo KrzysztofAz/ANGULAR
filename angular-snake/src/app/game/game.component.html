@@ -42,10 +42,23 @@
             </option>
         </select>
 
+        <label for="sortSelectInput">
+            filter
+        </label>
+        <select id="sortSelectInput"[(ngModel)]="selectedSort">
+            <option value="all">
+                all
+            </option>
+            <option *ngFor = "let filter of actionArray" [value] = "filter">
+                {{filter}}
+            </option>
+        </select>
+
+
     </div>
         <div>
             <ul>
-                <li *ngFor="let action of actionList">
+                <li *ngFor="let action of actionList | sort: selectedFilter: actionList.length | filter: selectedSort: actionList.length">
                     {{action.action}}: {{action.seconds}}.{{action.mseconds}}
                 </li>
             </ul>

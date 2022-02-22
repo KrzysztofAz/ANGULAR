@@ -5,24 +5,23 @@
         <!-- {{loginForm.value | json}} -->
         <div>
             <label for="loginUser">Login:</label>
-            <input required maxlength="10" minlength="1" ngModel #inputLogin="ngModel" type="text" name="userName" id="loginUser" placeholder="Enter login">
-            <br><br>
+            <input required maxlength="10" minlength="2" ngModel #inputLogin="ngModel" type="text" name="userName"
+                id="loginUser" placeholder="Enter login">
         </div>
         <div class="error" *ngIf="inputLogin.invalid && inputLogin.dirty">
-            <p>Input dirty.</p>
-          </div>
-
+            <p>Wrong login.</p>
+        </div>
         <div>
             <label for="emailUser">E-mail:</label>
-            <input type="email" name="emailUser" id="emailUser" placeholder="Enter e-mail" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel #inputEmail="ngModel">
-            <br><br>
+            <input type="email" name="emailUser" id="emailUser" placeholder="Enter e-mail" required
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel #inputEmail="ngModel">
         </div>
         <div class="error" *ngIf="inputEmail.invalid && inputEmail.dirty">
-            <p>Input dirty.</p>
-          </div>
+            <p>Wrong e-mial.</p>
+        </div>
     </form>
-
-    <div> 
+    
+    <div>
         <button type="submit" [disabled]="!loginForm.valid" (click)="welcome()">Welcome</button>
     </div>
 </div>

@@ -7,6 +7,7 @@ import {NgxSnakeModule} from 'ngx-snake';
 import { GameComponent } from './game/game.component';
 import { LoginComponent } from './login/login.component';
 import { SortPipe } from './sort.pipe';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
     declarations: [
@@ -14,6 +15,7 @@ import { SortPipe } from './sort.pipe';
         GameComponent,
         LoginComponent,
         SortPipe,
+        FilterPipe,
     ],
     imports: [
         BrowserModule,
