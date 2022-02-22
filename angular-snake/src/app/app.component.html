@@ -1,12 +1,18 @@
+{{userName}}
+{{userEmial}}
+
 <div [hidden] = "!isVisible">
     <app-login
     (resultChangeVisible) = "statusLogin($event)"
+    (sendUserData) = "getUserData($event)"
     ></app-login>  
 </div>
 
 <div [hidden] = "isVisible">
     <app-game
     (resultChangeVisible) = "statusGame($event)"
+    [getUserName] = "userName"
+    
     ></app-game>
 </div>
 

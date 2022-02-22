@@ -1,37 +1,41 @@
-<ngx-snake #game
-(foodEaten)="statusPoints()"
-(gameOver)="statusGame()"
-></ngx-snake>
-
- 
-
-<button 
-(click)="startTime()"
-(click)="game.actionStart()">Start</button>
-<button (click)="game.actionStop(); stopTime()">Stop</button>
-<button (click)="game.actionReset(); resetTime(); resetAction()">Reset</button>
-<button (click)="game.actionUp(); followActions('up')">Up</button>
-<button (click)="game.actionLeft(); followActions('left')">Left</button>
-<button (click)="game.actionRight(); followActions('right')">Right</button>
-<button (click)="game.actionDown(); followActions('down')">Down</button>
-<button (click)="welcome()">Exit</button>
-
-<p>
-    points: {{points}}
-   
-   
-</p>
-<p>
-    time: {{seconds}}.{{mseconds}}
-</p>
-<p>
-    actionName: {{actionName}}
-</p>
-
-<div>
-    <ul>
-        <li *ngFor = "let action of actionList">
-            {{action.action}}: {{action.seconds}}.{{action.mseconds}}
-        </li>
-    </ul>
+<div class="container">
+    <ngx-snake #game (foodEaten)="statusPoints()" (gameOver)="statusGame()"></ngx-snake>
+    
+    <div>
+        <button (click)="startTime(); game.actionStart()">Start</button>
+        <button (click)="game.actionStop(); stopTime()">Stop</button>
+        <button (click)="game.actionReset(); resetTime(); resetAction(); resetPoints()">Reset</button>
+        <button (click)="welcome()">Exit</button>
+    </div>
+    <div>
+        <button (click)="game.actionUp(); followActions('up')">Up</button>
+        <button (click)="game.actionDown(); followActions('down')">Down</button>
+        <button (click)="game.actionLeft(); followActions('left')">Left</button>
+        <button (click)="game.actionRight(); followActions('right')">Right</button>   
+    </div>
+    <div>
+        
+    </div>
+    <div>
+        <p>
+            Name: {{getUserName}}
+        </p>
+        <p>
+            Points: {{points}}
+        </p>
+        <p>
+            Time: {{seconds}}.{{mseconds}}
+        </p>
+        <p>
+            Actions List: {{actionName}}
+        </p>
+    
+        <div>
+            <ul>
+                <li *ngFor="let action of actionList">
+                    {{action.action}}: {{action.seconds}}.{{action.mseconds}}
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>

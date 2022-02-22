@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Actions } from '../actions';
 
 @Component({
@@ -10,6 +10,7 @@ export class GameComponent implements OnInit {
 
   @Output() resultChangeVisible = new EventEmitter<boolean>()
   constructor() { }
+  @Input() getUserName: string = ""
 
   ngOnInit(): void {
   }
@@ -28,6 +29,7 @@ export class GameComponent implements OnInit {
 
   public isGameOver: boolean = false
 
+
   public statusPoints() {
     this.points = this.points + 1
   }
@@ -35,6 +37,12 @@ export class GameComponent implements OnInit {
     alert("Game Over")
     this.isGameOver = true
     clearInterval(this.interval)
+    this.isStart=false
+    this.seconds = 0
+    this.mseconds = 0
+    this.actionList = [];
+    this.actionName = "";
+    this.points = 0
   }
   
   public welcome() {
@@ -82,8 +90,11 @@ export class GameComponent implements OnInit {
   public resetAction(){
     this.actionList = [];
     this.actionName = "";
-    this.points = 0;
   }
   
+  public resetPoints(){
+    this.points = 0;
+  }
 
 }
+

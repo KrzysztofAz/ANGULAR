@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { user } from './login/login.component'; 
 
 @Component({
   selector: 'app-root',
@@ -7,11 +8,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-snake';
+  public userName: string = ""
+  public userEmial: string = ""
+
   isVisible: boolean = true
   statusLogin(data: boolean){
     this.isVisible = data
   }
   statusGame(data: boolean){
     this.isVisible = data
+  }
+  getUserData(data: user){
+    this.userName = data.userName
+    this.userEmial = data.emialAddress
   }
 }
