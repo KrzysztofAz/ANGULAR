@@ -18,4 +18,3 @@ export class LoginComponent implements OnInit {
     this.resultChangeVisible.emit(this.changeVisible)
   }
 }
-

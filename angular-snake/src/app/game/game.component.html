@@ -1,20 +1,37 @@
-     <ngx-snake #game
-    (foodEaten)="statusPoints()"
-    (gameOver)="gameOver(); resetTime()"
-    ></ngx-snake>
+<ngx-snake #game
+(foodEaten)="statusPoints()"
+(gameOver)="statusGame()"
+></ngx-snake>
 
-    <button (click)="game.actionStart(); startTime()">Start</button>
-    <button (click)="game.actionStop(); stopTime()">Stop</button>
-    <button (click)="game.actionReset(); resetPoints(); resetTime()">Reset</button>
-    <button (click)="game.actionUp()">Up</button>
-    <button (click)="game.actionLeft()">Left</button>
-    <button (click)="game.actionRight()">Right</button>
-    <button (click)="game.actionDown()">Down</button>
-    <button (click)="welcome()">Exit</button>
-    
-    <p>
-        Points: {{points}}
-        Time: {{seconds}}.{{milliseconds}}
-    </p>
+ 
 
+<button 
+(click)="startTime()"
+(click)="game.actionStart()">Start</button>
+<button (click)="game.actionStop(); stopTime()">Stop</button>
+<button (click)="game.actionReset(); resetTime(); resetAction()">Reset</button>
+<button (click)="game.actionUp(); followActions('up')">Up</button>
+<button (click)="game.actionLeft(); followActions('left')">Left</button>
+<button (click)="game.actionRight(); followActions('right')">Right</button>
+<button (click)="game.actionDown(); followActions('down')">Down</button>
+<button (click)="welcome()">Exit</button>
 
+<p>
+    points: {{points}}
+   
+   
+</p>
+<p>
+    time: {{seconds}}.{{mseconds}}
+</p>
+<p>
+    actionName: {{actionName}}
+</p>
+
+<div>
+    <ul>
+        <li *ngFor = "let action of actionList">
+            {{action.action}}: {{action.seconds}}.{{action.mseconds}}
+        </li>
+    </ul>
+</div>
