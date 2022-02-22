@@ -29,7 +29,20 @@
         <p>
             Actions List: {{actionName}}
         </p>
-    
+    <div>
+        <label for="filterSelectInput">
+            Sort:
+        </label>
+        <select id="filterSelectInput"[(ngModel)]="selectedFilter">
+            <option value = "ascending">
+                Ascending
+            </option>
+            <option value = "descending">
+                Descending
+            </option>
+        </select>
+
+    </div>
         <div>
             <ul>
                 <li *ngFor="let action of actionList">

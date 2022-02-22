@@ -29,6 +29,8 @@ export class GameComponent implements OnInit {
 
   public isGameOver: boolean = false
 
+  public selectedFilter: string = "ascending"
+
 
   public statusPoints() {
     this.points = this.points + 1
