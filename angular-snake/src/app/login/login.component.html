@@ -4,24 +4,24 @@
         <form #loginForm="ngForm" (submit)="getValues(loginForm.value); loginForm.reset()">
             <!-- {{loginForm.value | json}} -->
             <div class=loginLabel>
-                <label for="loginUser" class="form-label"><b>Login:</b></label>
+                <label for="loginUser" class="form-label">Name:</label>
                 <input required maxlength="10" minlength="3" ngModel #inputLogin="ngModel" type="text" name="userName"
                     id="loginUser" placeholder="Enter login">
             </div>
             <div class="error" *ngIf="inputLogin.invalid && inputLogin.dirty">
-                <p>Incorrect login.</p>
+                <p>Name length must be 2 to 26 characters.</p>
             </div>
             <div class=loginLabel>
-                <label for="emailUser" class="form-label"><b>E-mail:</b></label>
+                <label for="emailUser" class="form-label">E-mail:</label>
                 <input type="email" name="emailUser" id="emailUser" placeholder="Enter e-mail" required
                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel #inputEmail="ngModel">
             </div>
             <div class="error" *ngIf="inputEmail.invalid && inputEmail.dirty">
-                <p>Incorrect e-mial.</p>
+                <p>E-mial address is incorrect.</p>
             </div>
-            <div class="buttonPanel">
+           
                 <button class="btn" type="submit" [disabled]="!loginForm.valid" (click)="welcome()">Welcome</button>
-            </div>
+           
            
         </form>
     </div>
