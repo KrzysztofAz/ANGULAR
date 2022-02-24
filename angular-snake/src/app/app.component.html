@@ -1,5 +1,5 @@
-{{userName}}
-{{userEmial}}
+<!-- {{userName}}
+{{userEmail}} -->
 
 <div [hidden] = "!isVisible">
     <app-login
@@ -12,7 +12,7 @@
     <app-game
     (resultChangeVisible) = "statusGame($event)"
     [getUserName] = "userName"
-    
+    [getUserEmail] = "userEmail"
     ></app-game>
 </div>
 

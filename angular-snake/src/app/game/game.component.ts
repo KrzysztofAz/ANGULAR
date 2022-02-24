@@ -11,6 +11,7 @@ export class GameComponent implements OnInit {
   @Output() resultChangeVisible = new EventEmitter<boolean>()
   constructor() { }
   @Input() getUserName: string = ""
+  @Input() getUserEmail: string = ""
 
   ngOnInit(): void {
   }

@@ -27,10 +27,10 @@ export class LoginComponent implements OnInit {
 
 export class user{
   public userName: string
-  public emialAddress: string
+  public userEmail: string
   
-  constructor(userName: string, emailAddress: string){
+  constructor(userName: string, userEmail: string){
     this.userName = userName
-    this.emialAddress = emailAddress
+    this.userEmail = userEmail
   }
 }
