@@ -1,6 +1,35 @@
+*{
+    box-sizing: border-box;
+    font-size: 20px;
+}
 .container{
+    height: 100vh;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
+h1{
+    text-align: center;
+    font-size: 60px;
+    color: black
+}
+.loginPanel{
+    width: 360px;
+    padding: 50px;
+    background-color: yellow;
+    border-radius: 10px;
+    border: 2px solid darkgreen;
+}
+
+.btn{
+    
+    background-color: green;
+    color: #fff;
+    border-radius: 5px;
+    border: 2px solid darkgreen
+   
+}
+
+
