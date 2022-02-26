@@ -33,7 +33,7 @@ export class GameComponent implements OnInit {
     this.points = this.points + 1
   }
   public statusGame() {
-    alert("Game Over")
+    alert(`Game Over! Your score is ${this.points} in ${this.seconds}.${this.mseconds}s `)
     this.isGameOver = true
     clearInterval(this.interval)
     this.isStart=false
