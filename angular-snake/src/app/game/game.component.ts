@@ -26,7 +26,7 @@ export class GameComponent implements OnInit {
   public isStart: boolean = false
   public isGameOver: boolean = false
   public selectedFilter: string = "ascending"
-  public actionArray: Array<string> = ["up", "down", "left", "right"]
+  public actionArray: Array<string> = ["Up", "Down", "Left", "Right"]
   public selectedSort: string = "all"
 
   public statusPoints() {
@@ -50,7 +50,7 @@ export class GameComponent implements OnInit {
 
   private increase() {
     this.mseconds = this.mseconds + 1
-    if (this.mseconds === 100) {
+    if (this.mseconds >= 100) {
       this.mseconds = 0
       this.seconds = this.seconds + 1
     }

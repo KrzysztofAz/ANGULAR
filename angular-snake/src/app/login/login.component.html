@@ -5,11 +5,11 @@
             <!-- {{loginForm.value | json}} -->
             <div class=loginLabel>
                 <label for="loginUser">Name:</label>
-                <input required maxlength="10" minlength="3" ngModel #inputLogin="ngModel" type="text" name="userName"
+                <input required maxlength="20" minlength="3" ngModel #inputLogin="ngModel" type="text" name="userName"
                     id="loginUser" placeholder="Enter login">
             </div>
             <div class="error" *ngIf="inputLogin.invalid && inputLogin.dirty">
-                <p>Name length must be 2 to 26 characters.</p>
+                <p>Name length must be 2 to 20 characters.</p>
             </div>
             <div class=loginLabel>
                 <label for="userEmail">E-mail:</label>

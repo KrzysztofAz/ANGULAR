@@ -1,6 +1,133 @@
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.header {
+  font-size: 40px;
+  font-weight: bold;
+  color: #0f1a07;
+  text-shadow: 2px 8px 6px yellow,
+    0px -5px 35px rgba(255, 255, 255, 0.3);
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.game {
+  padding-bottom: 10px;
+}
+
+.buttonsPanel {
+  background-color: yellow;
+  border: 2px solid darkgreen;
+  padding: 10px 10px
+}
+
+.actionPanel {
+  font-weight: bold;
+  background-color: yellow;
+  border: 2px solid darkgreen;
+  padding: 10px 10px
+}
+
+.menu ul {
+  list-style-type: none;
+  /* margin: 0; */
+  padding: 0;
+}
+
+.menu li {
+  padding: 8px;
+  margin-bottom: 7px;
+  background-color: yellow;
+  color: black;
+  border: 2px solid darkgreen;
+}
+
+
+.leftSide {
+  position: fixed;
+  top: 20.5%;
+  left: 20%;
+}
+
+.rightSide {
+  position: fixed;
+  top: 17.5%;
+  right: 33%;
+}
+
+.btn {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  text-align: center;
+  background: darkgreen;
+  color: white;
+  font-size: 12px;
+}
+
+.btnRed {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  text-align: center;
+  background: rgb(255, 0, 0);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.btnOrangered {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  text-align: center;
+  background: orangered;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.btnOrange {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  text-align: center;
+  background: orange;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.btnBlue {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  text-align: center;
+  background: blue;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.btnGreen {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  text-align: center;
+  background: green;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
 }
