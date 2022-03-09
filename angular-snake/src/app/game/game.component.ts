@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Actions } from '../actions';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-game',
@@ -9,7 +10,9 @@ import { Actions } from '../actions';
 export class GameComponent implements OnInit {
 
   @Output() resultChangeVisible = new EventEmitter<boolean>()
-  constructor() { }
+  constructor(
+    private _router: Router,
+  ) { }
   @Input() getUserName: string = ""
   @Input() getUserEmail: string = ""
 
@@ -45,7 +48,8 @@ export class GameComponent implements OnInit {
   }
   
   public welcome() {
-    this.resultChangeVisible.emit(this.changeVisible)
+    // this.resultChangeVisible.emit(this.changeVisible)
+    this._router.navigate(['/login']);
   }
 
   private increase() {
