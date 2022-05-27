@@ -10,6 +10,7 @@ import { SortPipe } from './sort.pipe';
 import { FilterPipe } from './filter.pipe';
 import {RouterModule} from "@angular/router";
 import { HttpClientModule } from "@angular/common/http";
+import { SortListPipe } from './pipes/sort-list.pipe';
 
 @NgModule({
     declarations: [
@@ -18,6 +19,7 @@ import { HttpClientModule } from "@angular/common/http";
         LoginComponent,
         SortPipe,
         FilterPipe,
+        SortListPipe,
     ],
     imports: [
         BrowserModule,
