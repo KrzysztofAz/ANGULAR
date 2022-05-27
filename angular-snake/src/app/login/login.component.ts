@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {Router} from "@angular/router";
+import { NameService } from '../services/name.service';
 
 @Component({
   selector: 'app-login',
@@ -8,24 +9,18 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
-  // @Output() resultChangeVisible = new EventEmitter<boolean>()
-  // @Output() sendUserData = new EventEmitter<user>()
-
   constructor(
     private _router: Router,
+    private _nameService: NameService
   ) { }
 
   ngOnInit(): void {
   }
 
-  // public changeVisible: boolean = false
-  public welcome(){
-    // this.resultChangeVisible.emit(this.changeVisible)
-    this._router.navigate(['/game']);
-  }
-
+ 
   public getValues(data: user){
-    // this.sendUserData.emit(data)
+    this._router.navigate(['/game']);
+    this._nameService.getUserData(data)
   }
 }
 

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Actions } from '../actions';
 import {Router} from "@angular/router";
+import { NameService } from '../services/name.service';
 
 @Component({
   selector: 'app-game',
@@ -9,15 +10,21 @@ import {Router} from "@angular/router";
 })
 export class GameComponent implements OnInit {
 
-  @Output() resultChangeVisible = new EventEmitter<boolean>()
   constructor(
     private _router: Router,
+    private _name: NameService
   ) { }
-  @Input() getUserName: string = ""
-  @Input() getUserEmail: string = ""
+
+// ------------------------- semestr 2 ---------------------------------
+
+  public enteredName: string = "";
 
   ngOnInit(): void {
+    this.enteredName = this._name.readName();
   }
+
+// ------------------------- semestr 2 ---------------------------------
+
   public interval: any = 0
   public seconds: number = 0
   public mseconds: number = 0

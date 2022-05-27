@@ -19,7 +19,7 @@
             <div class="error" *ngIf="inputEmail.invalid && inputEmail.dirty">
                 <p>E-mial address is incorrect.</p>
             </div>
-            <button class="btn" type="submit" [disabled]="!loginForm.valid" (click)="welcome()">Welcome</button>
+            <button class="btn" type="submit" [disabled]="!loginForm.valid">Welcome</button>
         </form>
     </div>
 </div>
