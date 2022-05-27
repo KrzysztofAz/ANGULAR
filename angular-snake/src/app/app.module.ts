@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { SortPipe } from './sort.pipe';
 import { FilterPipe } from './filter.pipe';
 import {RouterModule} from "@angular/router";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
     declarations: [
@@ -21,6 +22,7 @@ import {RouterModule} from "@angular/router";
     imports: [
         BrowserModule,
         NgxSnakeModule,
+        HttpClientModule,
         FormsModule,
         RouterModule.forRoot([
             { path: 'login', component: LoginComponent },

@@ -1,7 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Actions } from '../actions';
-import {Router} from "@angular/router";
+import { Router } from "@angular/router";
 import { NameService } from '../services/name.service';
+import { Scores } from '../interfaces/scores';
+import { DownloadScoresService } from '../services/download-scores.service';
 
 @Component({
   selector: 'app-game',
@@ -12,18 +14,30 @@ export class GameComponent implements OnInit {
 
   constructor(
     private _router: Router,
-    private _name: NameService
-  ) { }
+    private _name: NameService,
+    private _httpServices: DownloadScoresService
+  ) { 
 
-// ------------------------- semestr 2 ---------------------------------
+    this._httpServices.downloadDate().subscribe(result => {
+      this.scores = result;
+      // console.log(result);
+      
+    })
+
+  }
+
+  // ------------------------- semestr 2 ---------------------------------
 
   public enteredName: string = "";
+  public scores: Array<Scores> = [];
+
+
+
+  // ------------------------- semestr 2 ---------------------------------
 
   ngOnInit(): void {
     this.enteredName = this._name.readName();
   }
-
-// ------------------------- semestr 2 ---------------------------------
 
   public interval: any = 0
   public seconds: number = 0
@@ -46,14 +60,14 @@ export class GameComponent implements OnInit {
     alert(`Game Over! Your score is ${this.points} in ${this.seconds}.${this.mseconds}s `)
     this.isGameOver = true
     clearInterval(this.interval)
-    this.isStart=false
+    this.isStart = false
     this.seconds = 0
     this.mseconds = 0
     this.actionList = [];
     this.actionName = "";
     this.points = 0
   }
-  
+
   public welcome() {
     // this.resultChangeVisible.emit(this.changeVisible)
     this._router.navigate(['/login']);
@@ -68,7 +82,7 @@ export class GameComponent implements OnInit {
   }
 
   public startTime() {
-    if (! this.isStart && ! this.isGameOver) {
+    if (!this.isStart && !this.isGameOver) {
       this.interval = setInterval(() => {
         this.increase()
       }, 10);
@@ -76,33 +90,33 @@ export class GameComponent implements OnInit {
     }
   }
 
-  public stopTime(){
+  public stopTime() {
     if (this.isStart) {
       clearInterval(this.interval)
       this.isStart = false
     }
   }
 
-  public resetTime(){
+  public resetTime() {
     clearInterval(this.interval)
     this.seconds = 0
     this.mseconds = 0
     this.isGameOver = false
   }
 
-  public followActions(action: string){
+  public followActions(action: string) {
     if (this.isStart) {
       this.actionName = action
-    this.actionList.push(new Actions(this.actionName, this.seconds, this.mseconds))
+      this.actionList.push(new Actions(this.actionName, this.seconds, this.mseconds))
     }
   }
 
-  public resetAction(){
+  public resetAction() {
     this.actionList = [];
     this.actionName = "";
   }
-  
-  public resetPoints(){
+
+  public resetPoints() {
     this.points = 0;
   }
 
