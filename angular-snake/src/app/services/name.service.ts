@@ -6,11 +6,13 @@ import { user } from '../login/login.component';
 })
 export class NameService {
   private _userName:string = "";
+  private _myToken: string = "";
 
   constructor() { }
 
   getUserData(data: user){
-    this._userName = data.userName
+    this._userName = data.userName;
+    this._myToken = data.token;
   }
 
   readName() { 

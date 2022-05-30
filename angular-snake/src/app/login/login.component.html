@@ -12,12 +12,11 @@
                 <p>Name length must be 2 to 20 characters.</p>
             </div>
             <div class=loginLabel>
-                <label for="userEmail">E-mail:</label>
-                <input type="email" name="userEmail" id="userEmail" placeholder="Enter e-mail" required
-                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel #inputEmail="ngModel">
+                <label for="token">Token:</label>
+                <input type="text" name="token" id="token" placeholder="Enter student ID" required minlength="4" ngModel #inputToken="ngModel">
             </div>
-            <div class="error" *ngIf="inputEmail.invalid && inputEmail.dirty">
-                <p>E-mial address is incorrect.</p>
+            <div class="error" *ngIf="inputToken.invalid && inputToken.dirty">
+                <p>Token must be at least 4 characters.</p>
             </div>
             <button class="btn" type="submit" [disabled]="!loginForm.valid">Welcome</button>
         </form>

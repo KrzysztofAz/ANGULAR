@@ -26,10 +26,10 @@ export class LoginComponent implements OnInit {
 
 export class user{
   public userName: string
-  public userEmail: string
+  public token: string
   
-  constructor(userName: string, userEmail: string){
+  constructor(userName: string, token: string){
     this.userName = userName
-    this.userEmail = userEmail
+    this.token = token
   }
 }

@@ -9,7 +9,7 @@ import { user } from './login/login.component';
 export class AppComponent {
   title = 'angular-snake';
   public userName: string = ""
-  public userEmail: string = ""
+  public token: string = ""
 
   isVisible: boolean = true
   statusLogin(data: boolean){
@@ -20,6 +20,6 @@ export class AppComponent {
   }
   getUserData(data: user){
     this.userName = data.userName
-    this.userEmail = data.userEmail
+    this.token = data.token
   }
 }
