@@ -6,18 +6,28 @@ import { Scores } from '../interfaces/scores';
 })
 export class SortListPipe implements PipeTransform {
 
-  transform(list: Array<Scores>, listlength: number): Array<Scores> {
+  transform(list: Array<Scores>, listlength: number, selectedSort: string): Array<Scores> {
 
 
-      let newList: Scores[] = [];
+    let newList: Scores[] = [];
 
-    list.forEach((element) => {
-      if(newList.length < 10){
-        newList.push(element)
+    list.map((el) => {
+      if (newList.length < 10) {
+        newList.push(el)
       }
     })
 
+    if (selectedSort === 'ascending') {
+      newList.sort((a, b) => { return a.score - b.score })
       return newList;
     }
+
+    if (selectedSort === 'descending') {
+      newList.sort((a, b) => { return b.score - a.score })
+      return newList;
+    }
+
+    return newList;
+  }
 
 }

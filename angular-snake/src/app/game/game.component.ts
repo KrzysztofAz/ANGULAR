@@ -30,6 +30,7 @@ export class GameComponent implements OnInit {
 
   public enteredName: string = "";
   public scores: Array<Scores> = [];
+  public selectSort: string = 'all';
 
 
 
