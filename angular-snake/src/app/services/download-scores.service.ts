@@ -27,4 +27,18 @@ export class DownloadScoresService {
     return this._http.get<Array<Scores>>(url, requiredOption)
 
   }
+
+  sendTokenToServer(myToken: string) {
+
+    const token = {
+      "auth-token": `${myToken}`
+    }
+
+    const url = 'http://scores.chrum.it/check-token'
+
+    return this._http.post<{ success: boolean }>(url, token)
+
+  }
+
+
 }

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import {Router} from "@angular/router";
+import { Router } from "@angular/router";
+import { DownloadScoresService } from '../services/download-scores.service';
 import { NameService } from '../services/name.service';
 
 @Component({
@@ -11,24 +12,32 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private _router: Router,
-    private _nameService: NameService
+    private _nameService: NameService,
+    private _httpService: DownloadScoresService
   ) { }
 
   ngOnInit(): void {
   }
 
- 
-  public getValues(data: user){
-    this._router.navigate(['/game']);
-    this._nameService.getUserData(data)
+
+  public getValues(data: user) {
+    
+    this._nameService.getUserData(data);
+    this._httpService.sendTokenToServer(data.token).subscribe(result => {
+      if (result.success === true) {
+        this._router.navigate(['/game']);
+      } else {
+        this._router.navigate(['/login'])
+      }
+    });
   }
 }
 
-export class user{
+export class user {
   public userName: string
   public token: string
-  
-  constructor(userName: string, token: string){
+
+  constructor(userName: string, token: string) {
     this.userName = userName
     this.token = token
   }

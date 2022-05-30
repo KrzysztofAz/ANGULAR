@@ -16,7 +16,7 @@
                 <input type="text" name="token" id="token" placeholder="Enter student ID" required minlength="4" ngModel #inputToken="ngModel">
             </div>
             <div class="error" *ngIf="inputToken.invalid && inputToken.dirty">
-                <p>Token must be at least 4 characters.</p>
+                <p>Token must be at least 4 digits.</p>
             </div>
             <button class="btn" type="submit" [disabled]="!loginForm.valid">Welcome</button>
         </form>
