@@ -9,7 +9,13 @@ export class SortListPipe implements PipeTransform {
   transform(list: Array<Scores>, listlength: number): Array<Scores> {
 
 
-    let newList = list.sort((a,b) => {return b.score - a.score})
+      let newList: Scores[] = [];
+
+    list.forEach((element) => {
+      if(newList.length < 10){
+        newList.push(element)
+      }
+    })
 
       return newList;
     }
