@@ -1,111 +1,94 @@
 <div class="header">
-  <p>
-      Good Luck {{enteredName}}!
-  </p>
+  <p> Good Luck {{enteredName}}! </p>
   <!-- <p>
           Email: {{getUserEmail}}
       </p> -->
 </div>
-
 <div class="container">
- 
   <div class="game">
-      <ngx-snake #game (foodEaten)="statusPoints()" (gameOver)="statusGame()"></ngx-snake>
+    <ngx-snake #game (foodEaten)="statusPoints()" (gameOver)="statusGame()"></ngx-snake>
   </div>
-
 </div>
-
 <div class="container">
   <div>
-      <button (click)="game.actionUp(); followActions('Up')" class="btnRed">Up</button>
+    <button (click)="game.actionUp(); followActions('Up')" class="btnRed">Up</button>
   </div>
   <div>
-      <button (click)="game.actionLeft(); followActions('Left')" class="btnRed">Left</button>
-      <button (click)="game.actionDown(); followActions('Down')" class="btnRed">Down</button>
-      <button (click)="game.actionRight(); followActions('Right')" class="btnRed">Right</button>
+    <button (click)="game.actionLeft(); followActions('Left')" class="btnRed">Left</button>
+    <button (click)="game.actionDown(); followActions('Down')" class="btnRed">Down</button>
+    <button (click)="game.actionRight(); followActions('Right')" class="btnRed">Right</button>
   </div>
 </div>
-
-<div class ="rightSide">
+<div class="rightSide">
   <div class="container">
-      <div class="menu">
-          <ul>
-              <li><button (click)="welcome()" class="btnOrangered">Exit</button></li>
-              <li><button (click)="game.actionReset(); resetTime(); resetAction(); resetPoints()" class="btnOrange">Reset</button></li>
-          
-              <li><button (click)="game.actionStart(); startTime()" class="btnBlue">Start</button></li>
-              <li><button (click)="game.actionStop(); stopTime()" class="btnGreen">Stop</button></li>    
-          </ul>
-      </div>
+    <div class="menu">
+      <ul>
+        <li><button (click)="welcome()" class="btnOrangered">Exit</button></li>
+        <li><button (click)="game.actionReset(); resetTime(); resetAction(); resetPoints()"
+            class="btnOrange">Reset</button></li>
+        <li><button (click)="game.actionStart(); startTime()" class="btnBlue">Start</button></li>
+        <li><button (click)="game.actionStop(); stopTime()" class="btnGreen">Stop</button></li>
+      </ul>
+    </div>
   </div>
 </div>
-
-
 <div class="leftSide">
   <div class="container">
-      <div class="actionPanel">
-          <p>
-              Points: {{points}} 
-          </p>
-          <p>
-              Time: {{seconds}}.{{mseconds}}
-          </p>
-          <p>
-              Actions List: {{actionName}}
-          </p>
-          <div>
-              <label for="filterSelectInput">
-                  Sort:
-              </label>
-              <select id="filterSelectInput" [(ngModel)]="selectedFilter">
-                  <option value="ascending">
-                      Ascending
-                  </option>
-                  <option value="descending">
-                      Descending
-                  </option>
-              </select>
-  
-              <label for="sortSelectInput">
-                  Filter
-              </label>
-              <select id="sortSelectInput" [(ngModel)]="selectedSort">
-                  <option value="all">
-                      All
-                  </option>
-                  <option *ngFor="let filter of actionArray" [value]="filter">
-                      {{filter}}
-                  </option>
-              </select>
-          </div>
-  
-          <div>
-              <ul>
-                  <li
-                      *ngFor="let action of actionList | sort: selectedFilter: actionList.length | filter: selectedSort: actionList.length">
-                      {{action.action}}: {{action.seconds}}.{{action.mseconds}}
-                  </li>
-              </ul>
-          </div>
-      </div>
-</div>
-
-
-</div>
-
-<div class="container">
-    <p style="margin-top:100px;">List of Scores!!</p>
-    <div class="listOfScores">
-        <label> Sort: </label>
-        <select [(ngModel)]="selectSort">
-            <option value="all">All</option>
-            <option value="ascending">Ascending</option>
-            <option value="descending">Descending</option>
+    <div class="actionPanel">
+      <p> Points: {{points}} </p>
+      <p> Time: {{seconds}}.{{mseconds}} </p>
+      <p> Actions List: {{actionName}} </p>
+      <div>
+        <label for="filterSelectInput"> Sort: </label>
+        <select id="filterSelectInput" [(ngModel)]="selectedFilter">
+          <option value="ascending"> Ascending </option>
+          <option value="descending"> Descending </option>
         </select>
+        <label for="sortSelectInput"> Filter </label>
+        <select id="sortSelectInput" [(ngModel)]="selectedSort">
+          <option value="all"> All </option>
+          <option *ngFor="let filter of actionArray" [value]="filter"> {{filter}} </option>
+        </select>
+      </div>
+      <div>
         <ul>
-            <li *ngFor="let score of scores | sortList : scores.length : selectSort"> 
-                {{score.name}}, {{score.score}}
-            </li>
+          <li
+            *ngFor="let action of actionList | sort: selectedFilter: actionList.length | filter: selectedSort: actionList.length">
+            {{action.action}}: {{action.seconds}}.{{action.mseconds}} </li>
         </ul>
+      </div>
     </div>
+  </div>
+</div>
+<div class="container">
+  <div class="sortPanel">
+    <p> List of Scores!!</p>
+    <div class="listOfScores">
+      <label> Sort: </label>
+      <select [(ngModel)]="selectSort">
+        <option value="all">All</option>
+        <option value="ascending">Ascending</option>
+        <option value="descending">Descending</option>
+      </select>
+      <ul>
+        <li *ngFor="let score of scores | sortList : scores.length : selectSort"> {{score.name}}, {{score.score}} </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="sortPanel">
+    <p>List of My Scorses!!</p>
+    <div class="listOfScorses">
+      <select [(ngModel)]="sortScore">
+        <option value="ascending">Ascending</option>
+        <option value="descending">Descendin</option>
+      </select>
+      <ul>
+        <li
+          *ngFor="let score of scores | filterMyScores : scores.length : enteredName | sortMyScores : scores.length : sortScore">
+          {{score.name}}, {{score.score}} </li>
+      </ul>
+    </div>
+  </div>
 </div>

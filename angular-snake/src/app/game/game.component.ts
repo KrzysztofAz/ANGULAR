@@ -32,6 +32,7 @@ export class GameComponent implements OnInit {
   public scores: Array<Scores> = [];
   public selectSort: string = 'all';
   public enteredToken: string = this._name.returnToken();
+  public sortScore: string = 'ascending'
 
 
 

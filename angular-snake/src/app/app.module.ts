@@ -11,6 +11,8 @@ import { FilterPipe } from './filter.pipe';
 import {RouterModule} from "@angular/router";
 import { HttpClientModule } from "@angular/common/http";
 import { SortListPipe } from './pipes/sort-list.pipe';
+import { FilterMyScoresPipe } from './pipes/filter-my-scores.pipe';
+import { SortMyScoresPipe } from './pipes/sort-my-scores.pipe';
 
 @NgModule({
     declarations: [
@@ -20,6 +22,8 @@ import { SortListPipe } from './pipes/sort-list.pipe';
         SortPipe,
         FilterPipe,
         SortListPipe,
+        FilterMyScoresPipe,
+        SortMyScoresPipe,
     ],
     imports: [
         BrowserModule,

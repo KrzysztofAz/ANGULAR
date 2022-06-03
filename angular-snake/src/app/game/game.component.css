@@ -33,6 +33,14 @@
   border: 2px solid darkgreen;
   padding: 10px 10px
 }
+ .sortPanel {
+  margin-top: 100px;
+  font-weight: bold;
+  background-color: yellow;
+  border: 2px solid darkgreen;
+  padding: 10px 10px
+ }
+
 
 .menu ul {
   list-style-type: none;
