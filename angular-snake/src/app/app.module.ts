@@ -13,6 +13,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { SortListPipe } from './pipes/sort-list.pipe';
 import { FilterMyScoresPipe } from './pipes/filter-my-scores.pipe';
 import { SortMyScoresPipe } from './pipes/sort-my-scores.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [
@@ -34,7 +35,8 @@ import { SortMyScoresPipe } from './pipes/sort-my-scores.pipe';
             { path: 'login', component: LoginComponent },
             { path: 'game', component: GameComponent },
             { path: '**', redirectTo: '/login' }
-          ])
+          ]),
+        NgbModule
     ],
     providers: [],
     bootstrap: [AppComponent]

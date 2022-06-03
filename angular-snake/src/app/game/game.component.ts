@@ -32,7 +32,15 @@ export class GameComponent implements OnInit {
   public scores: Array<Scores> = [];
   public selectSort: string = 'all';
   public enteredToken: string = this._name.returnToken();
-  public sortScore: string = 'ascending'
+  public sortScore: string = 'ascending';
+  public intervalScore: any; 
+  
+  private refreshData(){
+    this._httpServices.downloadDate().subscribe(result => {
+      this.scores = result;
+      console.log(result, 'ref data');
+    })
+  }
 
 
 
@@ -41,7 +49,7 @@ export class GameComponent implements OnInit {
   ngOnInit(): void {
     this.enteredName = this._name.readName();
     console.log(this.enteredToken);
-    
+    this.intervalScore = setInterval(() => this.refreshData() ,30000);
   }
 
   public interval: any = 0

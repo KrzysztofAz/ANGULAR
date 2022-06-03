@@ -8,13 +8,22 @@ export class SortMyScoresPipe implements PipeTransform {
 
   transform(list: Scores[], listlength: number, sortMethod: string): Scores[] {
 
-    if(sortMethod === 'ascending'){
-      list.sort((a,b) => {return a.score - b.score})
+    // let newList: Scores[] = [];
+
+    // list.map((el) => {
+    //   if (newList.length < 10
+    //     ) {
+    //     newList.push(el)
+    //   }
+    // })
+
+    if (sortMethod === 'ascending') {
+      list.sort((a, b) => { return a.score - b.score })
     }
 
-    
-    if(sortMethod === 'descending'){
-      list.sort((a,b) => {return b.score - a.score})
+
+    if (sortMethod === 'descending') {
+      list.sort((a, b) => { return b.score - a.score })
     }
 
     return list;
