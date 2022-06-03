@@ -18,5 +18,10 @@ export class NameService {
   readName() { 
     return this._userName;
   }
+
+  returnToken(){
+    return this._myToken;
+  }
+
 }
 

@@ -8,6 +8,7 @@ export class SortListPipe implements PipeTransform {
 
   transform(list: Array<Scores>, listlength: number, selectedSort: string): Array<Scores> {
 
+    list.sort((a,b) => {return b.score - a.score})
 
     let newList: Scores[] = [];
 

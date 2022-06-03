@@ -31,6 +31,7 @@ export class GameComponent implements OnInit {
   public enteredName: string = "";
   public scores: Array<Scores> = [];
   public selectSort: string = 'all';
+  public enteredToken: string = this._name.returnToken();
 
 
 
@@ -38,6 +39,8 @@ export class GameComponent implements OnInit {
 
   ngOnInit(): void {
     this.enteredName = this._name.readName();
+    console.log(this.enteredToken);
+    
   }
 
   public interval: any = 0
@@ -59,6 +62,9 @@ export class GameComponent implements OnInit {
   }
   public statusGame() {
     alert(`Game Over! Your score is ${this.points} in ${this.seconds}.${this.mseconds}s `)
+
+    this._httpServices.sendMyScore(this.enteredToken, this.enteredName, this.points).subscribe()
+
     this.isGameOver = true
     clearInterval(this.interval)
     this.isStart = false
