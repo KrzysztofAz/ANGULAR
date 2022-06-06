@@ -1,26 +1,21 @@
 <div class="header">
   <p> Good Luck {{enteredName}}! </p>
-  <!-- <p>
-          Email: {{getUserEmail}}
-      </p> -->
 </div>
-<div class="container">
+<div class="game-container">
   <div class="game">
     <ngx-snake #game (foodEaten)="statusPoints()" (gameOver)="statusGame()"></ngx-snake>
+    <div class="container">
+      <div>
+        <button (click)="game.actionUp(); followActions('Up')" class="btnRed">Up</button>
+      </div>
+      <div>
+        <button (click)="game.actionLeft(); followActions('Left')" class="btnRed">Left</button>
+        <button (click)="game.actionDown(); followActions('Down')" class="btnRed">Down</button>
+        <button (click)="game.actionRight(); followActions('Right')" class="btnRed">Right</button>
+      </div>
+    </div>
   </div>
-</div>
-<div class="container">
   <div>
-    <button (click)="game.actionUp(); followActions('Up')" class="btnRed">Up</button>
-  </div>
-  <div>
-    <button (click)="game.actionLeft(); followActions('Left')" class="btnRed">Left</button>
-    <button (click)="game.actionDown(); followActions('Down')" class="btnRed">Down</button>
-    <button (click)="game.actionRight(); followActions('Right')" class="btnRed">Right</button>
-  </div>
-</div>
-<div class="rightSide">
-  <div class="container">
     <div class="menu">
       <ul>
         <li><button (click)="welcome()" class="btnOrangered">Exit</button></li>
@@ -32,36 +27,32 @@
     </div>
   </div>
 </div>
-<div class="leftSide">
-  <div class="container">
-    <div class="actionPanel">
-      <p> Points: {{points}} </p>
-      <p> Time: {{seconds}}.{{mseconds}} </p>
-      <p> Actions List: {{actionName}} </p>
-      <div>
-        <label for="filterSelectInput"> Sort: </label>
-        <select id="filterSelectInput" [(ngModel)]="selectedFilter">
-          <option value="ascending"> Ascending </option>
-          <option value="descending"> Descending </option>
-        </select>
-        <label for="sortSelectInput"> Filter </label>
-        <select id="sortSelectInput" [(ngModel)]="selectedSort">
-          <option value="all"> All </option>
-          <option *ngFor="let filter of actionArray" [value]="filter"> {{filter}} </option>
-        </select>
-      </div>
-      <div>
-        <ul>
-          <li
-            *ngFor="let action of actionList | sort: selectedFilter: actionList.length | filter: selectedSort: actionList.length">
-            {{action.action}}: {{action.seconds}}.{{action.mseconds}} </li>
-        </ul>
-      </div>
+<div class="flex-container">
+  <div class="actionPanel">
+    <p> Points: {{points}} </p>
+    <p> Time: {{seconds}}.{{mseconds}} </p>
+    <p> Actions List: {{actionName}} </p>
+    <div>
+      <label for="filterSelectInput"> Sort: </label>
+      <select id="filterSelectInput" [(ngModel)]="selectedFilter">
+        <option value="ascending"> Ascending </option>
+        <option value="descending"> Descending </option>
+      </select>
+      <label for="sortSelectInput"> Filter </label>
+      <select id="sortSelectInput" [(ngModel)]="selectedSort">
+        <option value="all"> All </option>
+        <option *ngFor="let filter of actionArray" [value]="filter"> {{filter}} </option>
+      </select>
+    </div>
+    <div>
+      <ul>
+        <li
+          *ngFor="let action of actionList | sort: selectedFilter: actionList.length | filter: selectedSort: actionList.length">
+          {{action.action}}: {{action.seconds}}.{{action.mseconds}} </li>
+      </ul>
     </div>
   </div>
-</div>
-<div class="container">
-  <div class="sortPanel">
+  <div class="actionPanel">
     <p> List of Scores!!</p>
     <div class="listOfScores">
       <label> Sort: </label>
@@ -75,11 +66,10 @@
       </ul>
     </div>
   </div>
-</div>
-<div class="container">
-  <div class="sortPanel">
+  <div class="actionPanel">
     <p>List of My Scorses!!</p>
     <div class="listOfScorses">
+      <label> Sort: </label>
       <select [(ngModel)]="sortScore">
         <option value="ascending">Ascending</option>
         <option value="descending">Descendin</option>

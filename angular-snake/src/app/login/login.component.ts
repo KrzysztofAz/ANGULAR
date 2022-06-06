@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     this._nameService.getUserData(data);
     this._httpService.sendTokenToServer(data.token).subscribe(result => {
       if (result.success === true) {
-        this._router.navigate(['/game']);
+        this._router.navigate(['/game',data.color]);
       } else {
         this._router.navigate(['/login'])
       }
@@ -36,9 +36,11 @@ export class LoginComponent implements OnInit {
 export class user {
   public userName: string
   public token: string
+  public color: string;
 
-  constructor(userName: string, token: string) {
-    this.userName = userName
-    this.token = token
+  constructor(userName: string, token: string, color: string) {
+    this.userName = userName;
+    this.token = token;
+    this.color = color;
   }
 }

@@ -14,6 +14,7 @@ import { SortListPipe } from './pipes/sort-list.pipe';
 import { FilterMyScoresPipe } from './pipes/filter-my-scores.pipe';
 import { SortMyScoresPipe } from './pipes/sort-my-scores.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NameService } from './services/name.service';
 
 @NgModule({
     declarations: [
@@ -33,12 +34,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         FormsModule,
         RouterModule.forRoot([
             { path: 'login', component: LoginComponent },
-            { path: 'game', component: GameComponent },
+            { path: 'game/:newColor', component: GameComponent },
             { path: '**', redirectTo: '/login' }
           ]),
         NgbModule
     ],
-    providers: [],
+    providers: [NameService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -7,7 +7,23 @@
   padding: 10px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: up;
+
+}
+
+.game-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: up;
+
 }
 
 .container {
@@ -28,24 +44,18 @@
 }
 
 .actionPanel {
+  margin-top: 50px;
   font-weight: bold;
   background-color: yellow;
   border: 2px solid darkgreen;
-  padding: 10px 10px
+  padding: 10px 10px;
+  border-radius: 5px;
 }
- .sortPanel {
-  margin-top: 100px;
-  font-weight: bold;
-  background-color: yellow;
-  border: 2px solid darkgreen;
-  padding: 10px 10px
- }
-
 
 .menu ul {
   list-style-type: none;
   /* margin: 0; */
-  padding: 0;
+  padding: 0 5px;
 }
 
 .menu li {
@@ -54,21 +64,10 @@
   background-color: yellow;
   color: black;
   border: 2px solid darkgreen;
+  border-radius: 5px;
 }
 
-
-.leftSide {
-  position: fixed;
-  top: 20.5%;
-  left: 20%;
-}
-
-.rightSide {
-  position: fixed;
-  top: 17.5%;
-  right: 33%;
-}
-
+/* buttons */
 .btn {
   cursor: pointer;
   width: 50px;
@@ -82,8 +81,8 @@
 
 .btnRed {
   cursor: pointer;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 5px;
   text-align: center;
   background: rgb(255, 0, 0);

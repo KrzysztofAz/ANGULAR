@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Actions } from '../actions';
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { NameService } from '../services/name.service';
 import { Scores } from '../interfaces/scores';
 import { DownloadScoresService } from '../services/download-scores.service';
@@ -15,8 +15,11 @@ export class GameComponent implements OnInit {
   constructor(
     private _router: Router,
     private _name: NameService,
-    private _httpServices: DownloadScoresService
+    private _httpServices: DownloadScoresService,
+    private _route: ActivatedRoute
   ) { 
+
+    this.gameParameter = this._route.snapshot.params['newColor']
 
     this._httpServices.downloadDate().subscribe(result => {
       this.scores = result;
@@ -34,6 +37,7 @@ export class GameComponent implements OnInit {
   public enteredToken: string = this._name.returnToken();
   public sortScore: string = 'ascending';
   public intervalScore: any; 
+  public gameParameter: string ='';
   
   private refreshData(){
     this._httpServices.downloadDate().subscribe(result => {

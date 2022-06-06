@@ -18,6 +18,13 @@
             <div class="error" *ngIf="inputToken.invalid && inputToken.dirty">
                 <p>Token must be at least 4 digits.</p>
             </div>
+            <div class="getColor">
+                <label for="getColor" >Select color</label>
+                <select id="getColor" name="color" ngModel required>
+                    <option value="normal" >Normal</option>
+                    <option value="contrast">High contrast</option>
+                </select>
+            </div>
             <button class="btn" type="submit" [disabled]="!loginForm.valid">Welcome</button>
         </form>
     </div>
