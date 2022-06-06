@@ -3,32 +3,32 @@
 </div>
 <div class="game-container">
   <div class="game">
-    <ngx-snake #game (foodEaten)="statusPoints()" (gameOver)="statusGame()"></ngx-snake>
+    <ngx-snake [ngClass]="{'black-and-white': gameParameter == 'contrast'}" #game (foodEaten)="statusPoints()" (gameOver)="statusGame()"></ngx-snake>
     <div class="container">
       <div>
-        <button (click)="game.actionUp(); followActions('Up')" class="btnRed">Up</button>
+        <button (click)="game.actionUp(); followActions('Up')" [ngClass]="{'contrastBackground': gameParameter == 'contrast'}" class="btnRed">Up</button>
       </div>
       <div>
-        <button (click)="game.actionLeft(); followActions('Left')" class="btnRed">Left</button>
-        <button (click)="game.actionDown(); followActions('Down')" class="btnRed">Down</button>
-        <button (click)="game.actionRight(); followActions('Right')" class="btnRed">Right</button>
+        <button (click)="game.actionLeft(); followActions('Left')" [ngClass]="{'contrastBackground': gameParameter == 'contrast'}" class="btnRed">Left</button>
+        <button (click)="game.actionDown(); followActions('Down')" [ngClass]="{'contrastBackground': gameParameter == 'contrast'}" class="btnRed">Down</button>
+        <button (click)="game.actionRight(); followActions('Right')" [ngClass]="{'contrastBackground': gameParameter == 'contrast'}" class="btnRed">Right</button>
       </div>
     </div>
   </div>
   <div>
     <div class="menu">
       <ul>
-        <li><button (click)="welcome()" class="btnOrangered">Exit</button></li>
+        <li><button (click)="welcome()" [ngClass]="{'contrastBackground': gameParameter == 'contrast'}" class="btnOrangered">Exit</button></li>
         <li><button (click)="game.actionReset(); resetTime(); resetAction(); resetPoints()"
-            class="btnOrange">Reset</button></li>
-        <li><button (click)="game.actionStart(); startTime()" class="btnBlue">Start</button></li>
-        <li><button (click)="game.actionStop(); stopTime()" class="btnGreen">Stop</button></li>
+          [ngClass]="{'contrastBackground': gameParameter == 'contrast'}" class="btnOrange">Reset</button></li>
+        <li><button (click)="game.actionStart(); startTime()" [ngClass]="{'contrastBackground': gameParameter == 'contrast'}" class="btnBlue">Start</button></li>
+        <li><button (click)="game.actionStop(); stopTime()" [ngClass]="{'contrastBackground': gameParameter == 'contrast'}" class="btnGreen">Stop</button></li>
       </ul>
     </div>
   </div>
 </div>
 <div class="flex-container">
-  <div class="actionPanel">
+  <div [ngClass]="{'contrastBackground': gameParameter == 'contrast'}" class="actionPanel">
     <p> Points: {{points}} </p>
     <p> Time: {{seconds}}.{{mseconds}} </p>
     <p> Actions List: {{actionName}} </p>
@@ -52,7 +52,7 @@
       </ul>
     </div>
   </div>
-  <div class="actionPanel">
+  <div [ngClass]="{'contrastBackground': gameParameter == 'contrast'}" class="actionPanel">
     <p> List of Scores!!</p>
     <div class="listOfScores">
       <label> Sort: </label>
@@ -66,7 +66,7 @@
       </ul>
     </div>
   </div>
-  <div class="actionPanel">
+  <div [ngClass]="{'contrastBackground': gameParameter == 'contrast'}" class="actionPanel">
     <p>List of My Scorses!!</p>
     <div class="listOfScorses">
       <label> Sort: </label>
