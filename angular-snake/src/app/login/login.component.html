@@ -1,31 +1,30 @@
 <div class="container">
     <h1>Welcome to NG-SNAKE</h1>
     <div class="loginPanel">
-        <form #loginForm="ngForm" (submit)="getValues(loginForm.value); loginForm.reset()">
+        <form [formGroup]="myForm" (submit)="getValues(myForm.value); myForm.reset({})">
             <!-- {{loginForm.value | json}} -->
             <div class=loginLabel>
                 <label for="loginUser">Name:</label>
-                <input required maxlength="20" minlength="3" ngModel #inputLogin="ngModel" type="text" name="userName"
-                    id="loginUser" placeholder="Enter login">
+                <input type="text" id="loginUser" placeholder="Enter login" formControlName="userName">
             </div>
-            <div class="error" *ngIf="inputLogin.invalid && inputLogin.dirty">
-                <p>Name length must be 2 to 20 characters.</p>
+            <div class="error" *ngIf="">
+                <p>Name lmust be at least 5 characters.</p>
             </div>
             <div class=loginLabel>
                 <label for="token">Token:</label>
-                <input type="text" name="token" id="token" placeholder="Enter student ID" required minlength="4" ngModel #inputToken="ngModel">
+                <input type="text" name="token" id="token" placeholder="Enter student ID" formControlName="token">
             </div>
-            <div class="error" *ngIf="inputToken.invalid && inputToken.dirty">
-                <p>Token must be at least 4 digits.</p>
+            <div class="error" *ngIf="">
+                <p>Token must be at least 5 characters.</p>
             </div>
             <div class="getColor">
                 <label for="getColor" >Select color</label>
-                <select id="getColor" name="color" ngModel required>
+                <select id="getColor" name="color" formControlName="color">
                     <option value="normal" >Normal</option>
                     <option value="contrast">High contrast</option>
                 </select>
             </div>
-            <button class="btn" type="submit" [disabled]="!loginForm.valid">Welcome</button>
+            <button class="btn" type="submit" [disabled]="!myForm.valid">Welcome</button>
         </form>
     </div>
 </div>

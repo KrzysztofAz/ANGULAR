@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import {AppComponent} from './app.component';
 import {NgxSnakeModule} from 'ngx-snake';
 import { GameComponent } from './game/game.component';
@@ -15,6 +15,7 @@ import { FilterMyScoresPipe } from './pipes/filter-my-scores.pipe';
 import { SortMyScoresPipe } from './pipes/sort-my-scores.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NameService } from './services/name.service';
+import { SaveMyRouteGuard } from './save-my-route.guard';
 
 @NgModule({
     declarations: [
@@ -34,10 +35,11 @@ import { NameService } from './services/name.service';
         FormsModule,
         RouterModule.forRoot([
             { path: 'login', component: LoginComponent },
-            { path: 'game/:newColor', component: GameComponent },
+            { path: 'game/:newColor', component: GameComponent, canActivate: [SaveMyRouteGuard] },
             { path: '**', redirectTo: '/login' }
           ]),
-        NgbModule
+        NgbModule,
+        ReactiveFormsModule
     ],
     providers: [NameService],
     bootstrap: [AppComponent]
